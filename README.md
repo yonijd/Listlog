@@ -1,2 +1,124 @@
-# Listlog
-Herramienta ligera para Windows que se aloja en el menú contextual con 2 opciones para generar tablas estructuradas de tus carpetas y copiarlas automáticamente al portapapeles. Ideal para pasar contexto rápido a tu Inteligencia Artificial favorita mediante Ctrl+V.
+Aquí tenés el README.md actualizado con el requisito de Python y el video tutorial:
+
+```markdown
+# LISTLOG - Listado Rápido de Directorios para IA
+
+## Video Tutorial
+
+[![Video Tutorial](https://img.youtube.com/vi/qhAvNsMBzGA/0.jpg)](https://www.youtube.com/watch?v=qhAvNsMBzGA)
+
+## Requisitos
+
+**Python 3.7 o superior** - [Descargar desde python.org](https://www.python.org/downloads/)
+
+> ⚠️ **Importante:** Durante la instalación de Python, asegurate de marcar la opción **"Add Python to PATH"**. Esto permite ejecutar `python` desde cualquier terminal.
+
+Para verificar que Python está instalado correctamente:
+```cmd
+python --version
+```
+
+## Descripción
+
+Herramienta de línea de comandos que genera reportes estructurados de directorios en formato tabla, optimizados para ser copiados al portapapeles y pegados directamente como contexto para IA.
+
+## Características
+
+- **Modo Simple**: Lista solo el contenido del directorio raíz (1 nivel)
+- **Modo Recursivo**: Escanea todo el árbol de directorios con estadísticas totales
+- **Sin dependencias externas**: Solo usa bibliotecas estándar de Python
+- **Auto-copia al portapapeles**: El reporte se copia automáticamente (Ctrl+V listo)
+- **Guardado automático**: Los logs se guardan en `%USERPROFILE%\.ialogpack\logs\`
+
+## Instalación
+
+```cmd
+python instalador.py
+```
+
+**Nota:** Si el comando `python` no funciona, probá con `python3` o verificá que Python esté en el PATH.
+
+## Uso
+
+### Línea de comandos
+```cmd
+# Modo simple (solo el directorio actual)
+listlog.py "C:\ruta\carpeta"
+
+# Modo recursivo
+listlog.py "C:\ruta\carpeta" --recursive
+```
+
+### Menú contextual (Windows)
+Una vez instalado:
+1. Click derecho en cualquier carpeta
+2. Ir a `IALogPack`
+3. Seleccionar:
+   - `1_listlog` → Modo simple
+   - `2_listlog_recursive` → Modo recursivo
+
+## Ejemplo de salida
+
+```
+==================================================================================
+   LISTADOR DE DIRECTORIO - LISTLOG v1.0.0 (SIMPLE)
+==================================================================================
+ Directorio: C:\Proyectos\mi_app
+
+NOMBRE                                             TIPO    TAMANO     MODIFICADO     
+------------------------------------------------------------------------------------
+src                                                DIR      <DIR>     2026-06-14 10:30
+tests                                              DIR      <DIR>     2026-06-14 09:15
+README.md                                          .md      2.15 KB   2026-06-13 18:00
+requirements.txt                                   .txt     1.02 KB   2026-06-12 15:20
+main.py                                            .py      8.45 KB   2026-06-14 11:00
+config.json                                        .json    0.85 KB   2026-06-10 09:00
+------------------------------------------------------------------------------------
+ RESUMEN: 4 Arch. (0 PDFs) | 2 Carp. | Total: 12.47 KB (12,771 B) | Tiempo: 0.023 seg
+==================================================================================
+```
+
+## Formato de salida
+
+| Columna | Descripción |
+|---------|-------------|
+| NOMBRE | Nombre del archivo o carpeta |
+| TIPO | Extensión del archivo o `DIR` para carpetas |
+| TAMANO | Tamaño formateado (B/KB/MB/GB) o `<DIR>` |
+| MODIFICADO | Fecha y hora de última modificación |
+
+## Limitaciones
+
+- ❌ No analiza contenido de archivos
+- ❌ No muestra hashes ni metadatos internos
+- ❌ No detecta tipos MIME reales (solo extensión)
+- ❌ Modo recursivo: listado plano sin jerarquía visual
+
+## Dependencias
+
+**Ninguna** - Solo bibliotecas estándar de Python. El único requisito es tener Python instalado en el sistema.
+
+## Archivos generados
+
+Los reportes se guardan automáticamente en:
+```
+%USERPROFILE%\.ialogpack\logs\listlog_nombre_carpeta_YYYY-MM-DD_HH-MM-SS.log
+```
+
+## Desinstalación
+
+Ejecutar `desinstalador.py` desde esta carpeta.
+
+## Licencia
+
+MIT
+
+## Versión
+
+1.0.0
+
+---
+
+*Esta herramienta forma parte del paquete IALogPack.*
+```
+
